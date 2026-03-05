@@ -4,10 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AI Marketing Dashboard</title>
+<title>Rius | Creative Frontend Developer</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
 
@@ -21,69 +20,114 @@ font-family:'Inter',sans-serif;
 body{
 background:#0f172a;
 color:white;
-display:flex;
+line-height:1.6;
 }
 
-/* SIDEBAR */
-
-.sidebar{
-width:220px;
-background:#020617;
-height:100vh;
-padding:30px 20px;
+.container{
+max-width:1100px;
+margin:auto;
+padding:40px 20px;
 }
 
-.sidebar h2{
-margin-bottom:40px;
-}
+/* NAVBAR */
 
-.sidebar a{
-display:block;
-color:#94a3b8;
-text-decoration:none;
-margin-bottom:18px;
-transition:.3s;
-}
-
-.sidebar a:hover{
-color:white;
-transform:translateX(6px);
-}
-
-/* MAIN */
-
-.main{
-flex:1;
-padding:40px;
-}
-
-/* HEADER */
-
-.header{
+nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
-margin-bottom:30px;
+padding:20px;
 }
 
-.header h1{
-font-size:28px;
+nav h2{
+font-size:22px;
 }
 
-/* KPI CARDS */
+nav a{
+color:#94a3b8;
+text-decoration:none;
+margin-left:20px;
+transition:.3s;
+}
 
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
+nav a:hover{
+color:white;
+}
+
+/* HERO */
+
+.hero{
+text-align:center;
+padding:120px 20px;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:20px;
+color:#94a3b8;
+max-width:600px;
+margin:auto;
+}
+
+.hero button{
+margin-top:30px;
+padding:14px 28px;
+border:none;
+background:#38bdf8;
+color:white;
+font-size:16px;
+border-radius:8px;
+cursor:pointer;
+transition:.3s;
+}
+
+.hero button:hover{
+transform:translateY(-3px);
+}
+
+/* ABOUT */
+
+.about{
+text-align:center;
+margin-top:100px;
+}
+
+.about h2{
+font-size:32px;
+margin-bottom:20px;
+}
+
+.about p{
+max-width:700px;
+margin:auto;
+color:#94a3b8;
+}
+
+/* PROJECTS */
+
+.projects{
+margin-top:100px;
+}
+
+.projects h2{
+text-align:center;
 margin-bottom:40px;
+font-size:32px;
+}
+
+.project-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
 }
 
 .card{
 background:rgba(255,255,255,0.05);
-padding:20px;
-border-radius:14px;
-backdrop-filter:blur(10px);
+padding:25px;
+border-radius:12px;
 transition:.3s;
 }
 
@@ -92,89 +136,80 @@ transform:translateY(-6px);
 }
 
 .card h3{
-font-size:14px;
-opacity:.7;
+margin-bottom:10px;
 }
 
 .card p{
-font-size:28px;
-font-weight:700;
-margin-top:10px;
+color:#94a3b8;
+font-size:14px;
+margin-bottom:20px;
 }
 
-/* CHARTS */
+.card a{
+text-decoration:none;
+color:#38bdf8;
+}
 
-.charts{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
+/* PROCESS */
+
+.process{
+margin-top:100px;
+text-align:center;
+}
+
+.process h2{
 margin-bottom:40px;
+font-size:32px;
 }
 
-.chart-box{
-background:rgba(255,255,255,0.05);
-padding:20px;
-border-radius:14px;
-}
-
-/* CUSTOMER TABLE */
-
-.table-box{
-background:rgba(255,255,255,0.05);
-padding:20px;
-border-radius:14px;
-margin-bottom:40px;
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-}
-
-th,td{
-padding:12px;
-text-align:left;
-border-bottom:1px solid rgba(255,255,255,0.1);
-}
-
-th{
-opacity:.7;
-font-size:13px;
-}
-
-/* PRODUCT FLOW */
-
-.flow{
+.steps{
 display:flex;
 justify-content:space-between;
-align-items:center;
-margin-top:40px;
+flex-wrap:wrap;
+gap:20px;
 }
 
-.flow-step{
-text-align:center;
+.step{
 flex:1;
+min-width:150px;
+background:rgba(255,255,255,0.05);
+padding:20px;
+border-radius:12px;
 }
 
-.flow-circle{
-width:70px;
-height:70px;
-border-radius:50%;
+.step h4{
+margin-bottom:10px;
+}
+
+/* CONTACT */
+
+.contact{
+margin-top:100px;
+text-align:center;
+}
+
+.contact h2{
+font-size:32px;
+margin-bottom:20px;
+}
+
+.contact button{
+padding:14px 30px;
+border:none;
 background:#38bdf8;
-display:flex;
-align-items:center;
-justify-content:center;
-margin:auto;
-font-weight:700;
+color:white;
+font-size:16px;
+border-radius:8px;
+cursor:pointer;
 }
 
-.flow-step p{
-margin-top:10px;
-}
+/* FOOTER */
 
-.arrow{
-font-size:30px;
-opacity:.4;
+footer{
+margin-top:80px;
+text-align:center;
+color:#64748b;
+font-size:14px;
 }
 
 </style>
@@ -182,192 +217,123 @@ opacity:.4;
 
 <body>
 
-<div class="sidebar">
+<nav class="container">
 
-<h2>GrowthAI</h2>
+<h2>Rius.dev</h2>
 
-<a href="#">Dashboard</a>
-<a href="#">Campaigns</a>
-<a href="#">Customers</a>
-<a href="#">Analytics</a>
-<a href="#">Settings</a>
-
+<div>
+<a href="#">Home</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
 </div>
 
-<div class="main">
+</nav>
 
-<div class="header">
-<h1>Analytics Dashboard</h1>
-</div>
+<section class="hero">
 
-<!-- KPI CARDS -->
+<h1>Creative Frontend Developer</h1>
 
-<div class="cards">
+<p>
+I build websites that not only work,  
+but create meaningful digital experiences.
+</p>
+
+<button onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">
+View My Work
+</button>
+
+</section>
+
+<section class="about container">
+
+<h2>About</h2>
+
+<p>
+I design and build interactive websites that connect with users emotionally. 
+My focus is not just writing code, but crafting digital experiences that help 
+businesses communicate their message clearly and effectively.
+</p>
+
+</section>
+
+<section id="projects" class="projects container">
+
+<h2>Featured Projects</h2>
+
+<div class="project-grid">
 
 <div class="card">
-<h3>Total Users</h3>
-<p>12,450</p>
+<h3>Cafe Experience Website</h3>
+<p>A modern website designed to create emotional connection between brand and customers.</p>
+<a href="/project1/">View Project →</a>
 </div>
 
 <div class="card">
-<h3>Revenue</h3>
-<p>$8,240</p>
+<h3>Marketing Startup Landing Page</h3>
+<p>A high-converting landing page designed for digital marketing services.</p>
+<a href="/project2/">View Project →</a>
 </div>
 
 <div class="card">
-<h3>Campaigns</h3>
-<p>32</p>
-</div>
-
-<div class="card">
-<h3>Conversion Rate</h3>
-<p>14.2%</p>
+<h3>AI Marketing SaaS Dashboard</h3>
+<p>An interactive analytics dashboard for monitoring marketing performance.</p>
+<a href="/project3/">View Project →</a>
 </div>
 
 </div>
 
-<!-- CHARTS -->
+</section>
 
-<div class="charts">
+<section class="process container">
 
-<div class="chart-box">
-<h3>Revenue Growth</h3>
-<canvas id="revenueChart"></canvas>
+<h2>Design Process</h2>
+
+<div class="steps">
+
+<div class="step">
+<h4>Research</h4>
+<p>Understanding the user's needs.</p>
 </div>
 
-<div class="chart-box">
-<h3>Campaign Performance</h3>
-<canvas id="campaignChart"></canvas>
+<div class="step">
+<h4>Strategy</h4>
+<p>Planning the digital experience.</p>
 </div>
 
+<div class="step">
+<h4>Design</h4>
+<p>Creating modern UI and interaction.</p>
 </div>
 
-<!-- CUSTOMER TABLE -->
-
-<div class="table-box">
-
-<h3 style="margin-bottom:15px;">Customer List</h3>
-
-<table>
-
-<tr>
-<th>Name</th>
-<th>Email</th>
-<th>Plan</th>
-<th>Status</th>
-<th>Revenue</th>
-</tr>
-
-<tr>
-<td>Sarah Lee</td>
-<td>sarah@email.com</td>
-<td>Pro</td>
-<td>Active</td>
-<td>$240</td>
-</tr>
-
-<tr>
-<td>Michael Tan</td>
-<td>michael@email.com</td>
-<td>Starter</td>
-<td>Active</td>
-<td>$120</td>
-</tr>
-
-<tr>
-<td>David Kim</td>
-<td>david@email.com</td>
-<td>Enterprise</td>
-<td>Active</td>
-<td>$860</td>
-</tr>
-
-<tr>
-<td>Amanda Ross</td>
-<td>amanda@email.com</td>
-<td>Pro</td>
-<td>Active</td>
-<td>$310</td>
-</tr>
-
-</table>
-
+<div class="step">
+<h4>Build</h4>
+<p>Developing the website using modern frontend tools.</p>
 </div>
 
-<!-- PRODUCT FLOW -->
-
-<h3>Product Workflow</h3>
-
-<div class="flow">
-
-<div class="flow-step">
-<div class="flow-circle">1</div>
-<p>Capture Leads</p>
-</div>
-
-<div class="arrow">→</div>
-
-<div class="flow-step">
-<div class="flow-circle">2</div>
-<p>AI Analyze</p>
-</div>
-
-<div class="arrow">→</div>
-
-<div class="flow-step">
-<div class="flow-circle">3</div>
-<p>Launch Campaign</p>
-</div>
-
-<div class="arrow">→</div>
-
-<div class="flow-step">
-<div class="flow-circle">4</div>
-<p>Track Growth</p>
+<div class="step">
+<h4>Launch</h4>
+<p>Delivering a fast and polished final product.</p>
 </div>
 
 </div>
 
-</div>
+</section>
 
-<script>
+<section id="contact" class="contact container">
 
-/* REVENUE CHART */
+<h2>Let's build something meaningful together.</h2>
 
-new Chart(document.getElementById("revenueChart"),{
-type:"line",
-data:{
-labels:["Jan","Feb","Mar","Apr","May","Jun"],
-datasets:[{
-data:[1200,2400,3100,4200,5200,6400],
-borderColor:"#38bdf8",
-backgroundColor:"rgba(56,189,248,0.2)",
-fill:true,
-tension:.4
-}]
-},
-options:{
-plugins:{legend:{display:false}}
-}
-});
+<button onclick="window.location.href='mailto:devrius0@gmail.com'">
+Contact Me
+</button>
 
-/* CAMPAIGN CHART */
+</section>
 
-new Chart(document.getElementById("campaignChart"),{
-type:"bar",
-data:{
-labels:["Email","Ads","SEO","Social"],
-datasets:[{
-data:[320,210,180,240],
-backgroundColor:"#38bdf8"
-}]
-},
-options:{
-plugins:{legend:{display:false}}
-}
-});
+<footer>
 
-</script>
+<p>© 2026 Rius – Creative Frontend Developer</p>
+
+</footer>
 
 </body>
-  </html>
+</html>
