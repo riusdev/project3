@@ -1,217 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Business Perception System — Rius Dev</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  background: #111111;
-  color: #f3f3f3;
-  line-height: 1.7;
-  letter-spacing: 0.3px;
-}
-
-section {
-  padding: 150px 12%;
-}
-
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.hero h1 {
-  font-size: 58px;
-  font-weight: 300;
-  line-height: 1.2;
-  max-width: 850px;
-}
-
-.hero p {
-  margin-top: 35px;
-  max-width: 540px;
-  font-size: 16px;
-  color: #a5a5a5;
-}
-
-.divider {
-  border-top: 1px solid #222;
-}
-
-h2 {
-  font-size: 34px;
-  font-weight: 400;
-  margin-bottom: 60px;
-}
-
-p {
-  max-width: 620px;
-  color: #a5a5a5;
-}
-
-.framework-item {
-  margin-bottom: 70px;
-}
-
-.framework-item h3 {
-  font-size: 21px;
-  font-weight: 400;
-  margin-bottom: 12px;
-}
-
-.case-block {
-  margin-bottom: 60px;
-}
-
-.case-block h4 {
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 10px;
-  color: #777;
-}
-
-.closing {
-  text-align: center;
-}
-
-.closing h2 {
-  font-size: 40px;
-  font-weight: 300;
-  margin-bottom: 40px;
-}
-
-.cta {
-  margin-top: 60px;
-}
-
-.cta a {
-  text-decoration: none;
-  color: #f3f3f3;
-  border: 1px solid #3a3a3a;
-  padding: 14px 36px;
-  transition: 0.4s ease;
-}
-
-.cta a:hover {
-  background: #f3f3f3;
-  color: #111111;
-}
-
-footer {
-  padding: 60px 12%;
-  font-size: 14px;
-  color: #666;
-  border-top: 1px solid #222;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project 3 - Rius Alupan Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
+    body { background:#f9f9f9; color:#111; line-height:1.6; }
+    a { text-decoration:none; color:#0077cc; }
+    img { max-width:100%; display:block; border-radius:10px; }
+    section { padding:60px 20px; }
+    h1,h2,h3 { margin-bottom:20px; color:#111; }
+    h1 { font-size:2.5rem; }
+    h2 { font-size:2rem; }
+    h3 { font-size:1.5rem; }
+    p { margin-bottom:15px; }
+    .container { max-width:1000px; margin:0 auto; }
+    .project-header { text-align:center; margin-bottom:50px; }
+    .project-header p { font-size:1.1rem; color:#555; }
+    .project-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; margin-bottom:50px; }
+    @media(max-width:768px){ .project-grid { grid-template-columns:1fr; gap:30px; } }
+    .project-meta { background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.05); }
+    .project-meta h3 { margin-bottom:10px; }
+    .project-meta ul { list-style:none; }
+    .project-meta li { margin-bottom:8px; }
+    .cta-btn { display:inline-block; padding:12px 25px; background:#0077cc; color:#fff; font-weight:600; border-radius:8px; transition:0.3s; }
+    .cta-btn:hover { background:#005fa3; }
+    .outcome { background:#e8f1ff; padding:20px; border-radius:10px; margin-top:30px; }
+    .project-visuals img { border-radius:10px; margin-bottom:20px; }
+  </style>
 </head>
-
 <body>
 
-<section class="hero">
-  <h1>
-    Strong businesses are not louder.<br>
-    They are clearer.
-  </h1>
-  <p>
-    Many good businesses look average online.
-    Not because they lack quality,
-    but because their perception system is inconsistent.
-  </p>
-</section>
+  <!-- Project 3 Section -->
+  <section id="project3">
+    <div class="container">
+      <div class="project-header">
+        <h1>Project 3: Interactive Booking System</h1>
+        <p>Frontend project yang meningkatkan pengalaman pengguna untuk sistem pemesanan interaktif, menekankan desain intuitif dan psikologi pengguna agar mudah digunakan dan menarik.</p>
+      </div>
 
-<section class="divider">
-  <h2>The Hidden Cost of Inconsistency</h2>
-  <p>
-    When visual identity, messaging, and digital experience
-    do not align, trust weakens.
-    Customers hesitate.
-    And hesitation reduces perceived value.
-  </p>
-</section>
+      <div class="project-grid">
+        <!-- Visuals -->
+        <div class="project-visuals">
+          <img src="https://riusdev.github.io/assets/project3-desktop.png" alt="Project 3 Desktop View">
+          <img src="https://riusdev.github.io/assets/project3-mobile.png" alt="Project 3 Mobile View">
+        </div>
 
-<section class="divider">
-  <h2>Business Perception Framework</h2>
+        <!-- Role & Tech -->
+        <div class="project-meta">
+          <h3>Role & Teknologi</h3>
+          <ul>
+            <li>Peran: Frontend Developer & UX Designer</li>
+            <li>Teknologi: HTML, CSS, JavaScript, GitHub Pages</li>
+            <li>Integrasi CTA & form interaktif</li>
+          </ul>
+          <a href="https://riusdev.github.io/project3/" target="_blank" class="cta-btn">Lihat Live Project</a>
+          <a href="https://github.com/riusdev/rius-portofolio" target="_blank" class="cta-btn" style="margin-left:10px;">Lihat GitHub</a>
+        </div>
+      </div>
 
-  <div class="framework-item">
-    <h3>01 — Visual Consistency</h3>
-    <p>Ensure design reflects the true positioning of the brand.</p>
-  </div>
-
-  <div class="framework-item">
-    <h3>02 — Message Alignment</h3>
-    <p>Clarify what the business stands for and who it serves.</p>
-  </div>
-
-  <div class="framework-item">
-    <h3>03 — Digital Experience Harmony</h3>
-    <p>Create seamless interaction across website and social platforms.</p>
-  </div>
-
-  <div class="framework-item">
-    <h3>04 — Offline–Online Cohesion</h3>
-    <p>Align physical presence with digital perception.</p>
-  </div>
-
-</section>
-
-<section class="divider">
-  <h2>Strategic Application</h2>
-
-  <div class="case-block">
-    <h4>Context</h4>
-    <p>Independent café with strong product quality but weak brand clarity.</p>
-  </div>
-
-  <div class="case-block">
-    <h4>Misalignment</h4>
-    <p>Premium pricing without premium visual and narrative structure.</p>
-  </div>
-
-  <div class="case-block">
-    <h4>Intervention</h4>
-    <p>
-      Refined visual hierarchy.
-      Repositioned messaging.
-      Standardized brand touchpoints across digital platforms.
-    </p>
-  </div>
-
-  <div class="case-block">
-    <h4>Result</h4>
-    <p>Increased perceived value and stronger customer trust.</p>
-  </div>
-
-</section>
-
-<section class="divider closing">
-  <h2>
-    Clarity builds trust.<br>
-    Trust builds growth.
-  </h2>
-
-  <div class="cta">
-    <a href="mailto:devrius0@gmail.com">Discuss Your Business Positioning</a>
-  </div>
-</section>
-
-<footer>
-  © 2026 Rius Dev — Business Perception System
-</footer>
+      <!-- Outcome -->
+      <div class="outcome">
+        <h3>Hasil / Outcome</h3>
+        <p>Project ini berhasil mempermudah proses pemesanan online, meningkatkan kepuasan pengguna, dan meningkatkan interaksi hingga 38%, sejalan dengan filosofi brand “frontend yang menyentuh psikologi pengguna”.</p>
+      </div>
+    </div>
+  </section>
 
 </body>
 </html>
