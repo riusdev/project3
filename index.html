@@ -6,9 +6,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Luxury Product Showcase</title>
+<title>Rius — Frontend Developer</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -20,39 +20,38 @@ box-sizing:border-box;
 
 body{
 font-family:Inter;
-background:#0f0f0f;
+background:#0f172a;
 color:white;
-transition:0.4s;
-}
-
-body.light{
-background:#f5f5f5;
-color:#111;
+line-height:1.6;
 }
 
 section{
-padding:120px 8%;
+padding:100px 10%;
 }
 
-h1,h2{
-font-family:'Playfair Display';
+h1,h2,h3{
+font-weight:600;
+}
+
+p{
+color:#94a3b8;
 }
 
 nav{
 display:flex;
 justify-content:space-between;
-padding:25px 8%;
+padding:25px 10%;
 position:fixed;
 width:100%;
-background:rgba(0,0,0,0.5);
+background:rgba(15,23,42,0.8);
 backdrop-filter:blur(10px);
 }
 
-.toggle{
-cursor:pointer;
-border:1px solid white;
-padding:8px 15px;
-font-size:13px;
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-size:14px;
 }
 
 /* HERO */
@@ -62,58 +61,74 @@ height:100vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
-align-items:center;
-text-align:center;
+max-width:700px;
 }
 
 .hero h1{
-font-size:60px;
+font-size:54px;
 margin-bottom:20px;
 }
 
-.hero p{
-opacity:.7;
-max-width:600px;
+.cta{
+margin-top:30px;
 }
 
-/* VIDEO */
+.btn{
+display:inline-block;
+padding:14px 28px;
+background:#38bdf8;
+border-radius:8px;
+text-decoration:none;
+color:black;
+font-weight:500;
+}
 
-.video{
+.btn.secondary{
+background:none;
+border:1px solid #38bdf8;
+color:#38bdf8;
+margin-left:15px;
+}
+
+/* SERVICES */
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+margin-top:50px;
+}
+
+.card{
+background:#1e293b;
+padding:30px;
+border-radius:12px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+/* PROJECTS */
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:40px;
 margin-top:60px;
-max-width:900px;
 }
 
-.video video{
-width:100%;
-border-radius:10px;
-}
-
-/* DEVICE */
-
-.devices{
-display:flex;
-gap:50px;
-justify-content:center;
-margin-top:80px;
-flex-wrap:wrap;
-}
-
-.device{
-width:300px;
-background:#161616;
-border-radius:20px;
+.project{
+background:#1e293b;
 padding:20px;
-transition:0.4s;
-transform-style:preserve-3d;
+border-radius:12px;
 }
 
-.device:hover{
-transform:rotateY(10deg) rotateX(10deg) scale(1.05);
-}
-
-.device img{
+.project img{
 width:100%;
 border-radius:10px;
+margin-bottom:15px;
 }
 
 /* PROCESS */
@@ -121,32 +136,42 @@ border-radius:10px;
 .process{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:40px;
-margin-top:60px;
+gap:30px;
+margin-top:40px;
 }
 
 .step{
-background:#161616;
-padding:30px;
+background:#1e293b;
+padding:25px;
 border-radius:10px;
-transition:0.3s;
 }
 
-.step:hover{
-transform:translateY(-8px);
+/* PRICING */
+
+.pricing{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+margin-top:50px;
 }
 
-.step h3{
-margin-bottom:10px;
+.price-card{
+background:#1e293b;
+padding:35px;
+border-radius:12px;
 }
 
-/* CASE STUDY */
+.price{
+font-size:36px;
+margin:20px 0;
+}
 
-.case{
-max-width:900px;
-margin:auto;
-line-height:1.7;
-opacity:.85;
+/* CTA */
+
+.cta-section{
+text-align:center;
+background:#1e293b;
+border-radius:12px;
 }
 
 </style>
@@ -157,10 +182,14 @@ opacity:.85;
 
 <nav>
 
-<div>Luxury Product</div>
+<div>RiusDev</div>
 
-<div class="toggle" onclick="toggleMode()">
-Toggle Mode
+<div>
+
+<a href="#services">Services</a>
+<a href="#projects">Projects</a>
+<a href="#pricing">Pricing</a>
+
 </div>
 
 </nav>
@@ -169,47 +198,102 @@ Toggle Mode
 
 <section class="hero">
 
-<h1>Luxury Product Experience</h1>
+<h1>
+Frontend Developer
+for Modern Businesses
+</h1>
 
 <p>
-Interactive product storytelling designed to connect emotionally with users.
+I design and build modern websites that combine beautiful visuals with engaging user experience.
 </p>
 
-<div class="video">
+<div class="cta">
 
-<video autoplay muted loop>
+<a class="btn" href="https://wa.me/">Hire Me</a>
 
-<source src="assets/product-preview.mp4" type="video/mp4">
-
-</video>
+<a class="btn secondary" href="#projects">View Work</a>
 
 </div>
 
 </section>
 
-<!-- DEVICE PREVIEW -->
+<!-- SERVICES -->
 
-<section>
+<section id="services">
 
-<h2 style="text-align:center">Product Interface</h2>
+<h2>Services</h2>
 
-<div class="devices">
+<div class="services">
 
-<div class="device">
+<div class="card">
+
+<h3>Business Website</h3>
+
+<p>
+Professional website for businesses that want to build trust online.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Startup Landing Page</h3>
+
+<p>
+High-converting landing pages designed to attract users and investors.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Interactive UI</h3>
+
+<p>
+Modern interface design with animations and engaging user experience.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<h2>Selected Projects</h2>
+
+<div class="projects">
+
+<div class="project">
+
+<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+
+<h3>Cafe Website</h3>
+
+<p>Modern coffee shop website design.</p>
+
+</div>
+
+<div class="project">
+
+<img src="https://images.unsplash.com/photo-1551281044-8d8a1f5f0b47">
+
+<h3>Startup Marketing</h3>
+
+<p>Landing page for marketing automation startup.</p>
+
+</div>
+
+<div class="project">
 
 <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3">
 
-</div>
+<h3>Luxury Product</h3>
 
-<div class="device">
-
-<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
-
-</div>
-
-<div class="device">
-
-<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
+<p>Interactive product showcase experience.</p>
 
 </div>
 
@@ -221,46 +305,82 @@ Interactive product storytelling designed to connect emotionally with users.
 
 <section>
 
-<h2 style="text-align:center">Design Process</h2>
+<h2>My Process</h2>
 
 <div class="process">
 
 <div class="step">
 
 <h3>Research</h3>
-
-<p>
-Understanding user psychology and emotional triggers behind luxury product perception.
-</p>
-
-</div>
-
-<div class="step">
-
-<h3>Concept</h3>
-
-<p>
-Creating a storytelling structure that guides users through product discovery.
-</p>
+<p>Understanding the client brand and users.</p>
 
 </div>
 
 <div class="step">
 
 <h3>Design</h3>
-
-<p>
-Crafting premium visual hierarchy, typography, and interaction patterns.
-</p>
+<p>Creating modern and engaging visual layout.</p>
 
 </div>
 
 <div class="step">
 
-<h3>Experience</h3>
+<h3>Development</h3>
+<p>Building responsive and fast websites.</p>
+
+</div>
+
+<div class="step">
+
+<h3>Launch</h3>
+<p>Delivering a polished website ready for business.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PRICING -->
+
+<section id="pricing">
+
+<h2>Website Packages</h2>
+
+<div class="pricing">
+
+<div class="price-card">
+
+<h3>Starter</h3>
+
+<div class="price">$300</div>
 
 <p>
-Developing smooth animations and immersive browsing experience.
+Simple business website.
+</p>
+
+</div>
+
+<div class="price-card">
+
+<h3>Professional</h3>
+
+<div class="price">$700</div>
+
+<p>
+Modern business website with animations.
+</p>
+
+</div>
+
+<div class="price-card">
+
+<h3>Premium</h3>
+
+<div class="price">$1500</div>
+
+<p>
+Full interactive website experience.
 </p>
 
 </div>
@@ -269,39 +389,21 @@ Developing smooth animations and immersive browsing experience.
 
 </section>
 
-<!-- CASE STUDY -->
+<!-- CTA -->
 
-<section>
+<section class="cta-section">
 
-<h2 style="text-align:center;margin-bottom:40px">
+<h2>Let's Build Something Amazing</h2>
 
-Case Study
+<p>
+Ready to create a modern website for your business?
+</p>
 
-</h2>
+<br>
 
-<div class="case">
-
-This project explores how digital storytelling can elevate product perception.
-
-The challenge was to design a landing page that doesn't just present features but creates an emotional narrative.
-
-The solution combines minimal layout, luxury typography, and animated interactions that guide the user through the product journey.
-
-The result is a modern product showcase that feels closer to a digital brand experience rather than a typical e-commerce page.
-
-</div>
+<a class="btn" href="https://wa.me/">Start a Project</a>
 
 </section>
-
-<script>
-
-function toggleMode(){
-
-document.body.classList.toggle("light")
-
-}
-
-</script>
 
 </body>
 
