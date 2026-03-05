@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Analytics Dashboard</title>
+<title>Ultra Analytics Dashboard</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -23,15 +23,36 @@ body{
 background:#0f172a;
 color:white;
 display:flex;
+transition:.3s;
 }
 
-/* Sidebar */
+/* LIGHT MODE */
+
+body.light{
+background:#f1f5f9;
+color:#020617;
+}
+
+body.light .card,
+body.light .chart-box,
+body.light .activity,
+body.light .progress-box{
+background:white;
+color:#020617;
+}
+
+/* SIDEBAR */
 
 .sidebar{
-width:220px;
+width:230px;
 background:#020617;
 height:100vh;
 padding:30px 20px;
+transition:.3s;
+}
+
+.sidebar.collapsed{
+width:70px;
 }
 
 .sidebar h2{
@@ -51,14 +72,29 @@ color:white;
 transform:translateX(5px);
 }
 
-/* Main */
+/* MAIN */
 
 .main{
 flex:1;
 padding:30px;
 }
 
-/* Cards */
+/* TOP BAR */
+
+.topbar{
+display:flex;
+justify-content:space-between;
+margin-bottom:30px;
+}
+
+button{
+padding:8px 14px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+/* CARDS */
 
 .cards{
 display:grid;
@@ -68,20 +104,20 @@ margin-bottom:30px;
 }
 
 .card{
-background:#1e293b;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
 padding:20px;
-border-radius:12px;
+border-radius:14px;
 transition:.3s;
 }
 
 .card:hover{
 transform:translateY(-5px);
-background:#334155;
 }
 
 .card h3{
 font-size:14px;
-color:#94a3b8;
+opacity:.7;
 }
 
 .card p{
@@ -90,21 +126,21 @@ margin-top:10px;
 font-weight:700;
 }
 
-/* Chart */
+/* CHART */
 
 .chart-box{
-background:#1e293b;
+background:rgba(255,255,255,0.05);
 padding:20px;
-border-radius:12px;
+border-radius:14px;
 margin-bottom:30px;
 }
 
-/* Progress */
+/* PROGRESS */
 
 .progress-box{
-background:#1e293b;
+background:rgba(255,255,255,0.05);
 padding:20px;
-border-radius:12px;
+border-radius:14px;
 margin-bottom:30px;
 }
 
@@ -122,17 +158,17 @@ height:100%;
 background:#38bdf8;
 }
 
-/* Activity */
+/* ACTIVITY */
 
 .activity{
-background:#1e293b;
+background:rgba(255,255,255,0.05);
 padding:20px;
-border-radius:12px;
+border-radius:14px;
 }
 
 .activity-item{
 padding:10px 0;
-border-bottom:1px solid #334155;
+border-bottom:1px solid rgba(255,255,255,0.1);
 font-size:14px;
 }
 
@@ -145,9 +181,9 @@ border:none;
 
 <body>
 
-<div class="sidebar">
+<div class="sidebar" id="sidebar">
 
-<h2>Dashboard</h2>
+<h2>Dash</h2>
 
 <a href="#">Overview</a>
 <a href="#">Analytics</a>
@@ -159,23 +195,32 @@ border:none;
 
 <div class="main">
 
-<h1 style="margin-bottom:30px;">Analytics Overview</h1>
+<div class="topbar">
+
+<h1>Analytics Overview</h1>
+
+<div>
+<button onclick="toggleSidebar()">☰</button>
+<button onclick="toggleTheme()">🌙</button>
+</div>
+
+</div>
 
 <div class="cards">
 
 <div class="card">
 <h3>Total Users</h3>
-<p>12,450</p>
+<p class="counter" data-target="12450">0</p>
 </div>
 
 <div class="card">
 <h3>Revenue</h3>
-<p>$8,240</p>
+<p class="counter" data-target="8240">0</p>
 </div>
 
 <div class="card">
 <h3>Conversions</h3>
-<p>1,120</p>
+<p class="counter" data-target="1120">0</p>
 </div>
 
 <div class="card">
@@ -223,31 +268,59 @@ border:none;
 
 <script>
 
-const ctx=document.getElementById('chart');
+/* CHART */
 
-new Chart(ctx,{
-type:'line',
+new Chart(document.getElementById("chart"),{
+type:"line",
 data:{
-labels:['Jan','Feb','Mar','Apr','May','Jun'],
+labels:["Jan","Feb","Mar","Apr","May","Jun"],
 datasets:[{
-label:'Website Visitors',
+label:"Visitors",
 data:[1200,1900,3000,5000,4200,6100],
-borderColor:'#38bdf8',
-backgroundColor:'rgba(56,189,248,0.2)',
+borderColor:"#38bdf8",
+backgroundColor:"rgba(56,189,248,0.2)",
 fill:true,
 tension:.4
 }]
 },
 options:{
-plugins:{
-legend:{display:false}
-},
-scales:{
-x:{ticks:{color:'white'}},
-y:{ticks:{color:'white'}}
-}
+plugins:{legend:{display:false}}
 }
 });
+
+/* COUNTER */
+
+const counters=document.querySelectorAll(".counter");
+
+counters.forEach(counter=>{
+const update=()=>{
+const target=+counter.getAttribute("data-target");
+const count=+counter.innerText;
+
+const speed=200;
+const inc=target/speed;
+
+if(count<target){
+counter.innerText=Math.ceil(count+inc);
+setTimeout(update,10);
+}else{
+counter.innerText=target;
+}
+};
+update();
+});
+
+/* THEME */
+
+function toggleTheme(){
+document.body.classList.toggle("light");
+}
+
+/* SIDEBAR */
+
+function toggleSidebar(){
+document.getElementById("sidebar").classList.toggle("collapsed");
+}
 
 </script>
 
