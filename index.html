@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Rius Dev | Interactive Frontend Portfolio</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#0f172a;
+color:white;
+overflow-x:hidden;
+cursor:none;
+}
+
+/* magnetic cursor */
+
+.cursor{
+width:20px;
+height:20px;
+border:2px solid #38bdf8;
+border-radius:50%;
+position:fixed;
+pointer-events:none;
+transform:translate(-50%,-50%);
+transition:transform .1s;
+z-index:999;
+}
+
+/* hero */
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(180deg,#0f172a,#020617);
+}
+
+.hero h1{
+font-size:50px;
+}
+
+.hero p{
+color:#94a3b8;
+}
+
+/* parallax */
+
+.parallax{
+height:400px;
+background:url("https://images.unsplash.com/photo-1555066931-4365d14bab8c") center/cover fixed;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:40px;
+}
+
+/* project section */
+
+.projects{
+padding:100px 10%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:40px;
+}
+
+/* 3d card */
+
+.card{
+background:#1e293b;
+padding:30px;
+border-radius:15px;
+transition:0.4s;
+transform-style:preserve-3d;
+}
+
+.card:hover{
+transform:rotateY(10deg) rotateX(10deg) scale(1.05);
+box-shadow:0 20px 40px rgba(0,0,0,0.5);
+}
+
+.card img{
+width:100%;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+/* analytics dashboard */
+
+.dashboard{
+padding:100px 10%;
+}
+
+.chart{
+height:200px;
+background:#1e293b;
+border-radius:10px;
+margin-top:20px;
+position:relative;
+overflow:hidden;
+}
+
+.bar{
+width:30px;
+background:#38bdf8;
+position:absolute;
+bottom:0;
+animation:grow 2s infinite alternate;
+}
+
+@keyframes grow{
+from{height:40px}
+to{height:160px}
+}
+
+/* product flow */
+
+.flow{
+padding:100px;
+text-align:center;
+font-size:22px;
+}
+
+.flow div{
+margin:20px;
+}
+
+/* page transition */
+
+.fade{
+animation:fadeIn 1s;
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(30px)}
+to{opacity:1; transform:translateY(0)}
+}
+
+</style>
+</head>
+
+<body class="fade">
+
+<div class="cursor" id="cursor"></div>
+
+<section class="hero">
+
+<h1>Interactive Web Experiences</h1>
+
+<p>Frontend Developer • Digital Experience Builder</p>
+
+</section>
+
+
+<section class="parallax">
+
+Creative Digital Products
+
+</section>
+
+
+<section class="projects">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1551434678-e076c223a692">
+
+<h3>Personal Branding Website</h3>
+
+<p>Psychology-driven portfolio design</p>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f">
+
+<h3>AI Marketing Platform</h3>
+
+<p>Landing page for startup SaaS product</p>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71">
+
+<h3>E-Commerce Experience</h3>
+
+<p>Interactive product showcase</p>
+
+</div>
+
+</section>
+
+
+<section class="dashboard">
+
+<h2>Analytics Dashboard</h2>
+
+<div class="chart">
+
+<div class="bar" style="left:40px"></div>
+<div class="bar" style="left:90px"></div>
+<div class="bar" style="left:140px"></div>
+<div class="bar" style="left:190px"></div>
+
+</div>
+
+</section>
+
+
+<section class="flow">
+
+<h2>Product Flow</h2>
+
+<div>Capture Leads</div>
+<div>↓</div>
+<div>AI Analyze</div>
+<div>↓</div>
+<div>Launch Campaign</div>
+<div>↓</div>
+<div>Track Growth</div>
+
+</section>
+
+
+<script>
+
+/* magnetic cursor */
+
+const cursor=document.getElementById("cursor")
+
+document.addEventListener("mousemove",e=>{
+
+cursor.style.left=e.clientX+"px"
+cursor.style.top=e.clientY+"px"
+
+})
+
+</script>
+
+</body>
+</html>
