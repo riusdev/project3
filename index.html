@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rius — Frontend Developer</title>
+<title>AI Marketing Platform</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -22,11 +22,11 @@ body{
 font-family:Inter;
 background:#0f172a;
 color:white;
-line-height:1.6;
+overflow-x:hidden;
 }
 
 section{
-padding:100px 10%;
+padding:120px 10%;
 }
 
 h1,h2,h3{
@@ -37,71 +37,40 @@ p{
 color:#94a3b8;
 }
 
-nav{
-display:flex;
-justify-content:space-between;
-padding:25px 10%;
-position:fixed;
-width:100%;
-background:rgba(15,23,42,0.8);
-backdrop-filter:blur(10px);
-}
-
-nav a{
-color:white;
-text-decoration:none;
-margin-left:20px;
-font-size:14px;
-}
-
 /* HERO */
 
 .hero{
-height:100vh;
+height:90vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
-max-width:700px;
+align-items:center;
+text-align:center;
 }
 
 .hero h1{
-font-size:54px;
+font-size:56px;
 margin-bottom:20px;
 }
 
-.cta{
-margin-top:30px;
+.hero video{
+width:900px;
+margin-top:50px;
+border-radius:12px;
 }
 
-.btn{
-display:inline-block;
-padding:14px 28px;
-background:#38bdf8;
-border-radius:8px;
-text-decoration:none;
-color:black;
-font-weight:500;
-}
+/* DASHBOARD */
 
-.btn.secondary{
-background:none;
-border:1px solid #38bdf8;
-color:#38bdf8;
-margin-left:15px;
-}
-
-/* SERVICES */
-
-.services{
+.dashboard{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:30px;
-margin-top:50px;
+margin-top:60px;
 }
 
 .card{
 background:#1e293b;
-padding:30px;
+padding:25px;
 border-radius:12px;
 transition:0.3s;
 }
@@ -110,25 +79,77 @@ transition:0.3s;
 transform:translateY(-8px);
 }
 
-/* PROJECTS */
+/* FLOW */
 
-.projects{
+.flow{
+text-align:center;
+font-size:20px;
+margin-top:60px;
+line-height:2;
+}
+
+/* FEATURES */
+
+.features{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:30px;
+margin-top:50px;
+}
+
+.feature{
+background:#1e293b;
+padding:30px;
+border-radius:12px;
+transition:0.3s;
+}
+
+.feature:hover{
+transform:scale(1.05);
+box-shadow:0 10px 40px rgba(56,189,248,0.4);
+}
+
+/* DEVICES */
+
+.devices{
+display:flex;
+justify-content:center;
 gap:40px;
+flex-wrap:wrap;
 margin-top:60px;
 }
 
-.project{
-background:#1e293b;
-padding:20px;
-border-radius:12px;
+.device{
+width:300px;
+transition:0.4s;
 }
 
-.project img{
+.device:hover{
+transform:rotateY(10deg) rotateX(10deg);
+}
+
+.device img{
 width:100%;
 border-radius:10px;
-margin-bottom:15px;
+}
+
+/* GALLERY */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+margin-top:60px;
+}
+
+.gallery img{
+width:100%;
+border-radius:12px;
+transition:0.4s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
 }
 
 /* PROCESS */
@@ -137,7 +158,7 @@ margin-bottom:15px;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:30px;
-margin-top:40px;
+margin-top:60px;
 }
 
 .step{
@@ -146,32 +167,29 @@ padding:25px;
 border-radius:10px;
 }
 
-/* PRICING */
+/* PARALLAX */
 
-.pricing{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:30px;
-margin-top:50px;
+.parallax{
+background:url("https://images.unsplash.com/photo-1551281044-8d8a1f5f0b47") center/cover fixed;
+height:400px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:40px;
 }
 
-.price-card{
-background:#1e293b;
-padding:35px;
-border-radius:12px;
-}
+/* MAGNETIC BUTTON */
 
-.price{
-font-size:36px;
-margin:20px 0;
-}
-
-/* CTA */
-
-.cta-section{
-text-align:center;
-background:#1e293b;
-border-radius:12px;
+.btn{
+display:inline-block;
+margin-top:40px;
+padding:14px 28px;
+background:#38bdf8;
+color:black;
+border-radius:8px;
+cursor:pointer;
+position:relative;
+transition:0.2s;
 }
 
 </style>
@@ -180,78 +198,57 @@ border-radius:12px;
 
 <body>
 
-<nav>
-
-<div>RiusDev</div>
-
-<div>
-
-<a href="#services">Services</a>
-<a href="#projects">Projects</a>
-<a href="#pricing">Pricing</a>
-
-</div>
-
-</nav>
-
 <!-- HERO -->
 
 <section class="hero">
 
-<h1>
-Frontend Developer
-for Modern Businesses
-</h1>
+<h1>AI Marketing Platform</h1>
 
-<p>
-I design and build modern websites that combine beautiful visuals with engaging user experience.
-</p>
+<p>Automate marketing campaigns and track business growth.</p>
 
-<div class="cta">
+<video autoplay muted loop>
 
-<a class="btn" href="https://wa.me/">Hire Me</a>
+<source src="https://cdn.coverr.co/videos/coverr-working-on-laptop-5170/1080p.mp4" type="video/mp4">
 
-<a class="btn secondary" href="#projects">View Work</a>
-
-</div>
+</video>
 
 </section>
 
-<!-- SERVICES -->
+<!-- DASHBOARD -->
 
-<section id="services">
+<section>
 
-<h2>Services</h2>
+<h2>Analytics Dashboard</h2>
 
-<div class="services">
+<div class="dashboard">
 
 <div class="card">
 
-<h3>Business Website</h3>
+<h3>Campaign Graph</h3>
 
-<p>
-Professional website for businesses that want to build trust online.
-</p>
+<p>Visualize marketing campaign performance.</p>
+
+<img src="https://images.unsplash.com/photo-1551281044-8d8a1f5f0b47" width="100%">
 
 </div>
 
 <div class="card">
 
-<h3>Startup Landing Page</h3>
+<h3>Revenue Chart</h3>
 
-<p>
-High-converting landing pages designed to attract users and investors.
-</p>
+<p>Track revenue growth and conversions.</p>
+
+<img src="https://images.unsplash.com/photo-1551281044-8d8a1f5f0b47" width="100%">
 
 </div>
 
 <div class="card">
 
-<h3>Interactive UI</h3>
+<h3>Customer List</h3>
 
-<p>
-Modern interface design with animations and engaging user experience.
-</p>
+<p>Manage leads and customer database.</p>
+
+<img src="https://images.unsplash.com/photo-1551281044-8d8a1f5f0b47" width="100%">
 
 </div>
 
@@ -259,43 +256,115 @@ Modern interface design with animations and engaging user experience.
 
 </section>
 
-<!-- PROJECTS -->
+<!-- FLOW -->
 
-<section id="projects">
+<section>
 
-<h2>Selected Projects</h2>
+<h2 style="text-align:center">Product Flow</h2>
 
-<div class="projects">
+<div class="flow">
 
-<div class="project">
-
-<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
-
-<h3>Cafe Website</h3>
-
-<p>Modern coffee shop website design.</p>
-
-</div>
-
-<div class="project">
-
-<img src="https://images.unsplash.com/photo-1551281044-8d8a1f5f0b47">
-
-<h3>Startup Marketing</h3>
-
-<p>Landing page for marketing automation startup.</p>
+Capture Leads  
+↓  
+AI Analyze  
+↓  
+Launch Campaign  
+↓  
+Track Growth  
 
 </div>
 
-<div class="project">
+</section>
+
+<!-- FEATURES -->
+
+<section>
+
+<h2>Platform Features</h2>
+
+<div class="features">
+
+<div class="feature">
+
+<h3>AI Marketing</h3>
+
+<p>AI driven marketing automation.</p>
+
+</div>
+
+<div class="feature">
+
+<h3>Automated Campaign</h3>
+
+<p>Launch campaigns automatically.</p>
+
+</div>
+
+<div class="feature">
+
+<h3>Growth Analytics</h3>
+
+<p>Advanced growth tracking.</p>
+
+</div>
+
+<div class="feature">
+
+<h3>Smart Targeting</h3>
+
+<p>Reach the right customers.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- DEVICE -->
+
+<section>
+
+<h2>Product Interface</h2>
+
+<div class="devices">
+
+<div class="device">
 
 <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3">
 
-<h3>Luxury Product</h3>
+</div>
 
-<p>Interactive product showcase experience.</p>
+<div class="device">
+
+<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
 
 </div>
+
+</div>
+
+</section>
+
+<!-- PARALLAX -->
+
+<div class="parallax">
+
+Digital Growth Engine
+
+</div>
+
+<!-- GALLERY -->
+
+<section>
+
+<h2>Product Preview</h2>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1551650975-87deedd944c3">
+
+<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
+
+<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
 
 </div>
 
@@ -305,103 +374,53 @@ Modern interface design with animations and engaging user experience.
 
 <section>
 
-<h2>My Process</h2>
+<h2>Design Process</h2>
 
 <div class="process">
 
 <div class="step">
 
 <h3>Research</h3>
-<p>Understanding the client brand and users.</p>
+
+<p>User behavior and marketing workflow research.</p>
 
 </div>
 
 <div class="step">
 
-<h3>Design</h3>
-<p>Creating modern and engaging visual layout.</p>
+<h3>UX Design</h3>
+
+<p>Designing intuitive product experience.</p>
 
 </div>
 
 <div class="step">
 
 <h3>Development</h3>
-<p>Building responsive and fast websites.</p>
+
+<p>Building fast and scalable interface.</p>
 
 </div>
 
 <div class="step">
 
 <h3>Launch</h3>
-<p>Delivering a polished website ready for business.</p>
+
+<p>Deploying product for real business usage.</p>
 
 </div>
 
 </div>
 
-</section>
+<div style="text-align:center">
 
-<!-- PRICING -->
+<div class="btn">
 
-<section id="pricing">
-
-<h2>Website Packages</h2>
-
-<div class="pricing">
-
-<div class="price-card">
-
-<h3>Starter</h3>
-
-<div class="price">$300</div>
-
-<p>
-Simple business website.
-</p>
-
-</div>
-
-<div class="price-card">
-
-<h3>Professional</h3>
-
-<div class="price">$700</div>
-
-<p>
-Modern business website with animations.
-</p>
-
-</div>
-
-<div class="price-card">
-
-<h3>Premium</h3>
-
-<div class="price">$1500</div>
-
-<p>
-Full interactive website experience.
-</p>
+Start Campaign
 
 </div>
 
 </div>
-
-</section>
-
-<!-- CTA -->
-
-<section class="cta-section">
-
-<h2>Let's Build Something Amazing</h2>
-
-<p>
-Ready to create a modern website for your business?
-</p>
-
-<br>
-
-<a class="btn" href="https://wa.me/">Start a Project</a>
 
 </section>
 
