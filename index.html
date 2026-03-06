@@ -1,249 +1,210 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Rius Dev | Interactive Frontend Portfolio</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rius Portfolio Ultimate Cinematic</title>
 <style>
+/* =======================
+   GLOBAL RESET & BASE
+======================= */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; cursor:none; }
+body { background:#0a0a0a; color:#fff; overflow-x:hidden; scroll-behavior:smooth; }
+a { text-decoration:none; color:inherit; }
+img, video { max-width:100%; display:block; }
 
-body{
-margin:0;
-font-family:Arial;
-background:#0f172a;
-color:white;
-overflow-x:hidden;
-cursor:none;
-}
+/* =======================
+   CUSTOM CURSOR
+======================= */
+.cursor { position:fixed; top:0; left:0; width:20px; height:20px; background:#fff; border-radius:50%; pointer-events:none; transform:translate(-50%,-50%); transition: transform 0.1s ease-out, background 0.2s, scale 0.2s; z-index:9999; }
 
-/* magnetic cursor */
+/* =======================
+   SECTION BASE & CINEMATIC TRANSITION
+======================= */
+section { min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; opacity:0; transform:translateY(50px); transition: all 1s cubic-bezier(0.77,0,0.175,1); position:relative; overflow:hidden; }
 
-.cursor{
-width:20px;
-height:20px;
-border:2px solid #38bdf8;
-border-radius:50%;
-position:fixed;
-pointer-events:none;
-transform:translate(-50%,-50%);
-transition:transform .1s;
-z-index:999;
-}
+/* =======================
+   HERO
+======================= */
+.hero { position:relative; overflow:hidden; }
+.hero video { position:absolute; top:50%; left:50%; width:100%; height:100%; object-fit:cover; transform:translate(-50%,-50%); z-index:-1; opacity:0.4; }
+.hero h1 { font-size:3rem; margin-bottom:1rem; }
+.hero p { font-size:1.2rem; margin-bottom:2rem; }
+.hero .cta { padding:0.8rem 2rem; border:2px solid #fff; border-radius:30px; cursor:pointer; transition:all 0.3s ease; }
+.hero .cta:hover { background:#fff; color:#111; }
 
-/* hero */
+/* =======================
+   PROJECT SHOWCASE
+======================= */
+.projects h2 { font-size:2.5rem; margin-bottom:3rem; }
+.project-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; }
+.project-card { background:#1a1a1a; border-radius:15px; overflow:hidden; cursor:pointer; position:relative; transition: transform 0.3s ease; }
+.project-card:hover { transform:translateY(-10px); }
+.project-card img { width:100%; transition: transform 0.3s ease; }
+.project-card:hover img { transform:scale(1.05); }
+.project-card .overlay { position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); opacity:0; display:flex; justify-content:center; align-items:center; color:#fff; font-size:1.2rem; transition:opacity 0.3s ease; }
+.project-card:hover .overlay { opacity:1; }
 
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:linear-gradient(180deg,#0f172a,#020617);
-}
+/* =======================
+   BEFORE-AFTER
+======================= */
+.before-after h2 { font-size:2.5rem; margin-bottom:3rem; }
+.slider-container { position:relative; max-width:800px; margin:0 auto; user-select:none; }
+.slider-container img { width:100%; border-radius:15px; }
+.slider-handle { position:absolute; top:0; left:50%; width:4px; height:100%; background:#fff; cursor:ew-resize; transform:translateX(-50%); }
 
-.hero h1{
-font-size:50px;
-}
+/* =======================
+   CASE STUDY
+======================= */
+.case-study h2 { font-size:2.5rem; margin-bottom:2rem; }
+.case-study p { max-width:800px; margin:0 auto 2rem auto; font-size:1.1rem; line-height:1.8; }
 
-.hero p{
-color:#94a3b8;
-}
+/* =======================
+   CONTACT
+======================= */
+.contact h2 { font-size:2.5rem; margin-bottom:2rem; }
+.contact a { display:inline-block; margin:0.5rem; padding:0.8rem 2rem; border:2px solid #fff; border-radius:30px; transition:all 0.3s ease; }
+.contact a:hover { background:#fff; color:#111; }
 
-/* parallax */
+/* =======================
+   PARALLAX IMAGES
+======================= */
+[data-parallax] { transform: translateY(0px); transition: transform 0.2s ease; }
 
-.parallax{
-height:400px;
-background:url("https://images.unsplash.com/photo-1555066931-4365d14bab8c") center/cover fixed;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:40px;
-}
-
-/* project section */
-
-.projects{
-padding:100px 10%;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:40px;
-}
-
-/* 3d card */
-
-.card{
-background:#1e293b;
-padding:30px;
-border-radius:15px;
-transition:0.4s;
-transform-style:preserve-3d;
-}
-
-.card:hover{
-transform:rotateY(10deg) rotateX(10deg) scale(1.05);
-box-shadow:0 20px 40px rgba(0,0,0,0.5);
-}
-
-.card img{
-width:100%;
-border-radius:10px;
-margin-bottom:15px;
-}
-
-/* analytics dashboard */
-
-.dashboard{
-padding:100px 10%;
-}
-
-.chart{
-height:200px;
-background:#1e293b;
-border-radius:10px;
-margin-top:20px;
-position:relative;
-overflow:hidden;
-}
-
-.bar{
-width:30px;
-background:#38bdf8;
-position:absolute;
-bottom:0;
-animation:grow 2s infinite alternate;
-}
-
-@keyframes grow{
-from{height:40px}
-to{height:160px}
-}
-
-/* product flow */
-
-.flow{
-padding:100px;
-text-align:center;
-font-size:22px;
-}
-
-.flow div{
-margin:20px;
-}
-
-/* page transition */
-
-.fade{
-animation:fadeIn 1s;
-}
-
-@keyframes fadeIn{
-from{opacity:0; transform:translateY(30px)}
-to{opacity:1; transform:translateY(0)}
-}
-
+@media(max-width:768px){ .hero h1{font-size:2.2rem;} .hero p{font-size:1rem;} }
 </style>
 </head>
+<body>
 
-<body class="fade">
+<div class="cursor"></div>
 
-<div class="cursor" id="cursor"></div>
-
-<section class="hero">
-
-<h1>Interactive Web Experiences</h1>
-
-<p>Frontend Developer • Digital Experience Builder</p>
-
+<!-- HERO -->
+<section class="hero" data-parallax>
+  <video autoplay muted loop preload="auto">
+    <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+  </video>
+  <h1>Frontend Developer</h1>
+  <p>Membuat project yang menyentuh psikologi klien dengan interaksi premium.</p>
+  <div class="cta" onclick="scrollToSection('.projects')">Lihat Portfolio</div>
 </section>
 
-
-<section class="parallax">
-
-Creative Digital Products
-
+<!-- PROJECT SHOWCASE -->
+<section class="projects" data-parallax>
+  <h2>Project Showcase</h2>
+  <div class="project-grid">
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1593642634367-d91a135587b5?auto=format&fit=crop&w=400&q=80" alt="Project 1">
+      <div class="overlay">Lihat Detail</div>
+    </div>
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" alt="Project 2">
+      <div class="overlay">Lihat Detail</div>
+    </div>
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=400&q=80" alt="Project 3">
+      <div class="overlay">Lihat Detail</div>
+    </div>
+  </div>
 </section>
 
-
-<section class="projects">
-
-<div class="card">
-
-<img src="https://images.unsplash.com/photo-1551434678-e076c223a692">
-
-<h3>Personal Branding Website</h3>
-
-<p>Psychology-driven portfolio design</p>
-
-</div>
-
-<div class="card">
-
-<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f">
-
-<h3>AI Marketing Platform</h3>
-
-<p>Landing page for startup SaaS product</p>
-
-</div>
-
-<div class="card">
-
-<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71">
-
-<h3>E-Commerce Experience</h3>
-
-<p>Interactive product showcase</p>
-
-</div>
-
+<!-- BEFORE-AFTER -->
+<section class="before-after" data-parallax>
+  <h2>Before → After</h2>
+  <div class="slider-container">
+    <img src="https://images.unsplash.com/photo-1581093588401-84b1c1b73b28?auto=format&fit=crop&w=800&q=80" alt="Before" class="before">
+    <img src="https://images.unsplash.com/photo-1612831455544-9b16a2f35f43?auto=format&fit=crop&w=800&q=80" alt="After" class="after" style="clip-path: inset(0 50% 0 0);">
+    <div class="slider-handle"></div>
+  </div>
 </section>
 
-
-<section class="dashboard">
-
-<h2>Analytics Dashboard</h2>
-
-<div class="chart">
-
-<div class="bar" style="left:40px"></div>
-<div class="bar" style="left:90px"></div>
-<div class="bar" style="left:140px"></div>
-<div class="bar" style="left:190px"></div>
-
-</div>
-
+<!-- CASE STUDY -->
+<section class="case-study" data-parallax>
+  <h2>Case Study</h2>
+  <p>Setiap proyek dibuat dengan tujuan menyentuh psikologi pengguna, meningkatkan engagement dan pengalaman interaktif.</p>
+  <p>Proses desain meliputi riset, wireframe, prototyping, hingga animasi interaktif untuk hasil maksimal.</p>
 </section>
 
-
-<section class="flow">
-
-<h2>Product Flow</h2>
-
-<div>Capture Leads</div>
-<div>↓</div>
-<div>AI Analyze</div>
-<div>↓</div>
-<div>Launch Campaign</div>
-<div>↓</div>
-<div>Track Growth</div>
-
+<!-- CONTACT -->
+<section class="contact" data-parallax>
+  <h2>Hubungi Saya</h2>
+  <a href="mailto:rius@example.com">Email</a>
+  <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
 </section>
-
 
 <script>
+// CUSTOM CURSOR
+const cursor=document.querySelector('.cursor');
+window.addEventListener('mousemove', e=>{cursor.style.top=e.clientY+'px'; cursor.style.left=e.clientX+'px';});
 
-/* magnetic cursor */
+// MAGNETIC HOVER CTA
+const cta=document.querySelector('.cta');
+cta.addEventListener('mousemove', e=>{
+  const rect=cta.getBoundingClientRect();
+  const x=e.clientX-rect.left-rect.width/2;
+  const y=e.clientY-rect.top-rect.height/2;
+  cta.style.transform=`translate(${x*0.2}px, ${y*0.2}px)`;
+});
+cta.addEventListener('mouseleave', ()=>{cta.style.transform='translate(0,0)';});
 
-const cursor=document.getElementById("cursor")
+// CINEMATIC TRANSITIONS SECTION
+const sections=document.querySelectorAll('section');
+function revealSections(){
+  const triggerBottom=window.innerHeight/5*4;
+  sections.forEach(sec=>{
+    if(sec.getBoundingClientRect().top<triggerBottom){
+      sec.style.opacity=1;
+      sec.style.transform='translateY(0)';
+    }else{
+      sec.style.opacity=0;
+      sec.style.transform='translateY(50px)';
+    }
+  });
+}
+window.addEventListener('scroll', revealSections);
+window.addEventListener('load', revealSections);
 
-document.addEventListener("mousemove",e=>{
+// PARALLAX
+window.addEventListener('scroll', ()=>{
+  const scrollY=window.scrollY;
+  document.querySelectorAll('[data-parallax]').forEach(el=>{
+    el.style.transform=`translateY(${scrollY*0.05}px)`;
+  });
+});
 
-cursor.style.left=e.clientX+"px"
-cursor.style.top=e.clientY+"px"
+// SCROLL TO SECTION
+function scrollToSection(selector){document.querySelector(selector).scrollIntoView({behavior:'smooth'});}
 
-})
+// CASE STUDY FADE
+const caseParagraphs=document.querySelectorAll('.case-study p');
+window.addEventListener('scroll', ()=>{
+  const triggerBottom=window.innerHeight/5*4;
+  caseParagraphs.forEach(p=>{
+    if(p.getBoundingClientRect().top<triggerBottom){
+      p.style.opacity='1';
+      p.style.transform='translateY(0)';
+    }else{
+      p.style.opacity='0';
+      p.style.transform='translateY(20px)';
+    }
+  });
+});
 
+// BEFORE-AFTER SLIDER
+const slider=document.querySelector('.slider-container');
+const afterImg=slider.querySelector('.after');
+const handle=slider.querySelector('.slider-handle');
+let isDragging=false;
+handle.addEventListener('mousedown', ()=>isDragging=true);
+window.addEventListener('mouseup', ()=>isDragging=false);
+window.addEventListener('mousemove', e=>{
+  if(!isDragging) return;
+  const rect=slider.getBoundingClientRect();
+  let x=e.clientX-rect.left;
+  x=Math.max(0,Math.min(x,rect.width));
+  const percent=x/rect.width*100;
+  afterImg.style.clipPath=`inset(0 ${100-percent}% 0 0)`;
+  handle.style.left=`${percent}%`;
+});
 </script>
-
 </body>
 </html>
