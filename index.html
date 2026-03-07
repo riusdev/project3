@@ -1,210 +1,475 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rius Portfolio Ultimate Cinematic</title>
+
+<title>Restaurant Digital Menu Website | RiusDev</title>
+
 <style>
-/* =======================
-   GLOBAL RESET & BASE
-======================= */
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; cursor:none; }
-body { background:#0a0a0a; color:#fff; overflow-x:hidden; scroll-behavior:smooth; }
-a { text-decoration:none; color:inherit; }
-img, video { max-width:100%; display:block; }
 
-/* =======================
-   CUSTOM CURSOR
-======================= */
-.cursor { position:fixed; top:0; left:0; width:20px; height:20px; background:#fff; border-radius:50%; pointer-events:none; transform:translate(-50%,-50%); transition: transform 0.1s ease-out, background 0.2s, scale 0.2s; z-index:9999; }
+body{
+font-family:Arial, sans-serif;
+margin:0;
+background:#fafafa;
+color:#333;
+line-height:1.6;
+}
 
-/* =======================
-   SECTION BASE & CINEMATIC TRANSITION
-======================= */
-section { min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; opacity:0; transform:translateY(50px); transition: all 1s cubic-bezier(0.77,0,0.175,1); position:relative; overflow:hidden; }
+/* HERO */
 
-/* =======================
-   HERO
-======================= */
-.hero { position:relative; overflow:hidden; }
-.hero video { position:absolute; top:50%; left:50%; width:100%; height:100%; object-fit:cover; transform:translate(-50%,-50%); z-index:-1; opacity:0.4; }
-.hero h1 { font-size:3rem; margin-bottom:1rem; }
-.hero p { font-size:1.2rem; margin-bottom:2rem; }
-.hero .cta { padding:0.8rem 2rem; border:2px solid #fff; border-radius:30px; cursor:pointer; transition:all 0.3s ease; }
-.hero .cta:hover { background:#fff; color:#111; }
+.hero{
+background:
+linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),
+url("https://images.unsplash.com/photo-1504674900247-0877df9cc836");
 
-/* =======================
-   PROJECT SHOWCASE
-======================= */
-.projects h2 { font-size:2.5rem; margin-bottom:3rem; }
-.project-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; }
-.project-card { background:#1a1a1a; border-radius:15px; overflow:hidden; cursor:pointer; position:relative; transition: transform 0.3s ease; }
-.project-card:hover { transform:translateY(-10px); }
-.project-card img { width:100%; transition: transform 0.3s ease; }
-.project-card:hover img { transform:scale(1.05); }
-.project-card .overlay { position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); opacity:0; display:flex; justify-content:center; align-items:center; color:#fff; font-size:1.2rem; transition:opacity 0.3s ease; }
-.project-card:hover .overlay { opacity:1; }
+background-size:cover;
+background-position:center;
 
-/* =======================
-   BEFORE-AFTER
-======================= */
-.before-after h2 { font-size:2.5rem; margin-bottom:3rem; }
-.slider-container { position:relative; max-width:800px; margin:0 auto; user-select:none; }
-.slider-container img { width:100%; border-radius:15px; }
-.slider-handle { position:absolute; top:0; left:50%; width:4px; height:100%; background:#fff; cursor:ew-resize; transform:translateX(-50%); }
+color:white;
+padding:180px 20px;
+text-align:center;
+}
 
-/* =======================
-   CASE STUDY
-======================= */
-.case-study h2 { font-size:2.5rem; margin-bottom:2rem; }
-.case-study p { max-width:800px; margin:0 auto 2rem auto; font-size:1.1rem; line-height:1.8; }
+.hero h1{
+font-size:46px;
+margin-bottom:10px;
+}
 
-/* =======================
-   CONTACT
-======================= */
-.contact h2 { font-size:2.5rem; margin-bottom:2rem; }
-.contact a { display:inline-block; margin:0.5rem; padding:0.8rem 2rem; border:2px solid #fff; border-radius:30px; transition:all 0.3s ease; }
-.contact a:hover { background:#fff; color:#111; }
+.hero p{
+max-width:720px;
+margin:auto;
+opacity:0.9;
+}
 
-/* =======================
-   PARALLAX IMAGES
-======================= */
-[data-parallax] { transform: translateY(0px); transition: transform 0.2s ease; }
+.hero a{
+display:inline-block;
+margin-top:30px;
+background:#ff6b35;
+color:white;
+padding:14px 30px;
+border-radius:6px;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
 
-@media(max-width:768px){ .hero h1{font-size:2.2rem;} .hero p{font-size:1rem;} }
+/* CONTAINER */
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:60px 20px;
+}
+
+.section{
+margin-top:80px;
+}
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:25px;
+margin-top:30px;
+}
+
+/* CARD */
+
+.card{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 6px 18px rgba(0,0,0,0.06);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 14px 35px rgba(0,0,0,0.12);
+}
+
+/* IMAGE */
+
+img{
+width:100%;
+border-radius:10px;
+margin-top:20px;
+}
+
+/* RESULT */
+
+.result{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:25px;
+margin-top:30px;
+}
+
+.result-box{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 6px 18px rgba(0,0,0,0.06);
+text-align:center;
+}
+
+/* QUOTE */
+
+.quote{
+background:#111;
+color:white;
+padding:70px 20px;
+text-align:center;
+}
+
+.quote p{
+font-size:20px;
+max-width:700px;
+margin:auto;
+}
+
+/* CTA */
+
+.cta{
+background:#ff6b35;
+color:white;
+text-align:center;
+padding:90px 20px;
+}
+
+.cta a{
+display:inline-block;
+margin-top:25px;
+background:white;
+color:#ff6b35;
+padding:14px 30px;
+border-radius:6px;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+/* HOVER BUTTON */
+
+.hero a:hover,
+.cta a:hover{
+transform:translateY(-2px);
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+.hero h1{
+font-size:32px;
+}
+}
+
 </style>
+
 </head>
+
 <body>
 
-<div class="cursor"></div>
-
 <!-- HERO -->
-<section class="hero" data-parallax>
-  <video autoplay muted loop preload="auto">
-    <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
-  </video>
-  <h1>Frontend Developer</h1>
-  <p>Membuat project yang menyentuh psikologi klien dengan interaksi premium.</p>
-  <div class="cta" onclick="scrollToSection('.projects')">Lihat Portfolio</div>
+
+<section class="hero">
+
+<h1>Restaurant Digital Menu Website</h1>
+
+<p>
+Website menu digital untuk restaurant modern agar pelanggan
+dapat melihat menu dengan mudah melalui smartphone
+dan meningkatkan pengalaman pelanggan saat memesan makanan.
+</p>
+
+<a href="https://wa.me/6281338693093?text=Hi%20RiusDev,%20saya%20ingin%20membuat%20website%20restaurant.">
+Start Your Website
+</a>
+
 </section>
 
-<!-- PROJECT SHOWCASE -->
-<section class="projects" data-parallax>
-  <h2>Project Showcase</h2>
-  <div class="project-grid">
-    <div class="project-card">
-      <img src="https://images.unsplash.com/photo-1593642634367-d91a135587b5?auto=format&fit=crop&w=400&q=80" alt="Project 1">
-      <div class="overlay">Lihat Detail</div>
-    </div>
-    <div class="project-card">
-      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" alt="Project 2">
-      <div class="overlay">Lihat Detail</div>
-    </div>
-    <div class="project-card">
-      <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=400&q=80" alt="Project 3">
-      <div class="overlay">Lihat Detail</div>
-    </div>
-  </div>
+<!-- CLIENT -->
+
+<div class="container">
+
+<h2>Client</h2>
+
+<div class="card">
+
+<h3>Golden Spoon Restaurant</h3>
+
+<p>
+Golden Spoon adalah restaurant keluarga yang ingin menyediakan
+menu digital modern agar pelanggan dapat melihat menu dengan mudah
+tanpa harus menggunakan menu fisik.
+</p>
+
+</div>
+
+</div>
+
+<!-- PROJECT OVERVIEW -->
+
+<div class="container section">
+
+<h2>Project Overview</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Role</h3>
+<p>Frontend Developer</p>
+</div>
+
+<div class="card">
+<h3>Industry</h3>
+<p>Restaurant Business</p>
+</div>
+
+<div class="card">
+<h3>Tools</h3>
+<p>HTML, CSS, Responsive Design</p>
+</div>
+
+<div class="card">
+<h3>Goal</h3>
+<p>Membuat website menu digital yang mudah digunakan pelanggan.</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- PROBLEM -->
+
+<div class="container section">
+
+<h2>Problem</h2>
+
+<p>
+Restaurant masih menggunakan menu cetak yang sering rusak
+dan sulit diperbarui ketika ada perubahan harga atau menu baru.
+</p>
+
+<img src="https://images.unsplash.com/photo-1514517220017-8ce97a34a7b6">
+
+</div>
+
+<!-- SOLUTION -->
+
+<div class="container section">
+
+<h2>Solution</h2>
+
+<p>
+Membuat website menu digital modern yang dapat diakses melalui
+smartphone pelanggan dengan tampilan makanan yang menarik
+dan navigasi menu yang sederhana.
+</p>
+
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+
+</div>
+
+<!-- RESTAURANT EXPERIENCE -->
+
+<div class="container section">
+
+<h2>Restaurant Experience</h2>
+
+<div class="grid">
+
+<img src="https://images.unsplash.com/photo-1559339352-11d035aa65de">
+
+<img src="https://images.unsplash.com/photo-1552566626-52f8b828add9">
+
+<img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17">
+
+</div>
+
+<p style="margin-top:20px">
+Website dirancang untuk menampilkan pengalaman makan
+yang menggugah selera melalui visual makanan berkualitas tinggi
+sehingga pelanggan tertarik untuk datang ke restaurant.
+</p>
+
+</div>
+
+<!-- MENU PREVIEW -->
+
+<div class="container section">
+
+<h2>Menu Preview</h2>
+
+<div class="grid">
+
+<img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38">
+
+<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
+
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+
+</div>
+
+</div>
+
+<!-- DESIGN HIGHLIGHTS -->
+
+<div class="container section">
+
+<h2>Design Highlights</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Food Photography</h3>
+<p>Visual makanan berkualitas tinggi untuk meningkatkan selera pelanggan.</p>
+</div>
+
+<div class="card">
+<h3>Digital Menu</h3>
+<p>Pelanggan dapat melihat menu langsung dari smartphone.</p>
+</div>
+
+<div class="card">
+<h3>Fast Navigation</h3>
+<p>Navigasi sederhana agar pelanggan cepat menemukan menu.</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- MY PROCESS -->
+
+<div class="container section">
+
+<h2>My Process</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>1. Research</h3>
+<p>Menganalisis kebutuhan restaurant dan target pelanggan.</p>
+</div>
+
+<div class="card">
+<h3>2. Design</h3>
+<p>Mendesain layout menu yang sederhana dan menarik.</p>
+</div>
+
+<div class="card">
+<h3>3. Development</h3>
+<p>Membangun website responsif yang cepat dan mobile friendly.</p>
+</div>
+
+<div class="card">
+<h3>4. Launch</h3>
+<p>Website siap digunakan untuk meningkatkan pengalaman pelanggan.</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- RESULT -->
+
+<div class="container section">
+
+<h2>Project Result</h2>
+
+<div class="result">
+
+<div class="result-box">
+<h3>Better Customer Experience</h3>
+<p>Pelanggan lebih mudah melihat menu.</p>
+</div>
+
+<div class="result-box">
+<h3>Modern Restaurant Image</h3>
+<p>Restaurant terlihat lebih modern.</p>
+</div>
+
+<div class="result-box">
+<h3>Mobile Friendly</h3>
+<p>Website optimal untuk smartphone.</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- PROJECT IMPACT -->
+
+<div class="container section">
+
+<h2>Project Impact</h2>
+
+<div class="result">
+
+<div class="result-box">
+<h3>+35%</h3>
+<p>Better menu engagement</p>
+</div>
+
+<div class="result-box">
+<h3>Mobile Optimized</h3>
+<p>Menu mudah dibaca di smartphone</p>
+</div>
+
+<div class="result-box">
+<h3>Modern Branding</h3>
+<p>Restaurant terlihat lebih profesional</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- TESTIMONIAL -->
+
+<section class="quote">
+
+<p>
+"Menu digital ini membuat restaurant kami terlihat lebih modern
+dan pelanggan lebih mudah memilih makanan."
+</p>
+
 </section>
 
-<!-- BEFORE-AFTER -->
-<section class="before-after" data-parallax>
-  <h2>Before → After</h2>
-  <div class="slider-container">
-    <img src="assets/pexels-photo-3183174.jpeg" alt="Before" class="before">
-    <img src="assets/pexels-photo-3184635.jpeg" alt="After" class="after" style="clip-path: inset(0 50% 0 0);">
-    <div class="slider-handle"></div>
-  </div>
+<!-- CTA -->
+
+<section class="cta">
+
+<h2>Need a Restaurant Website?</h2>
+
+<p>
+Saya membantu restaurant membuat website modern
+untuk meningkatkan kehadiran online dan menarik pelanggan baru.
+</p>
+
+<a href="https://wa.me/6281338693093?text=Hi%20RiusDev,%20saya%20tertarik%20membuat%20website.">
+Start Your Project
+</a>
+
 </section>
 
-<!-- CASE STUDY -->
-<section class="case-study" data-parallax>
-  <h2>Case Study</h2>
-  <p>Setiap proyek dibuat dengan tujuan menyentuh psikologi pengguna, meningkatkan engagement dan pengalaman interaktif.</p>
-  <p>Proses desain meliputi riset, wireframe, prototyping, hingga animasi interaktif untuk hasil maksimal.</p>
-</section>
+<!-- BACK -->
 
-<!-- CONTACT -->
-<section class="contact" data-parallax>
-  <h2>Hubungi Saya</h2>
-  <a href="mailto:devrius0@gmail.com">Email</a>
-  <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
-</section>
+<div class="container section" style="text-align:center">
 
-<script>
-// CUSTOM CURSOR
-const cursor=document.querySelector('.cursor');
-window.addEventListener('mousemove', e=>{cursor.style.top=e.clientY+'px'; cursor.style.left=e.clientX+'px';});
+<a href="https://riusdev.github.io/"
+style="display:inline-block;background:#eee;padding:12px 24px;border-radius:6px;text-decoration:none">
 
-// MAGNETIC HOVER CTA
-const cta=document.querySelector('.cta');
-cta.addEventListener('mousemove', e=>{
-  const rect=cta.getBoundingClientRect();
-  const x=e.clientX-rect.left-rect.width/2;
-  const y=e.clientY-rect.top-rect.height/2;
-  cta.style.transform=`translate(${x*0.2}px, ${y*0.2}px)`;
-});
-cta.addEventListener('mouseleave', ()=>{cta.style.transform='translate(0,0)';});
+← Back to Portfolio
 
-// CINEMATIC TRANSITIONS SECTION
-const sections=document.querySelectorAll('section');
-function revealSections(){
-  const triggerBottom=window.innerHeight/5*4;
-  sections.forEach(sec=>{
-    if(sec.getBoundingClientRect().top<triggerBottom){
-      sec.style.opacity=1;
-      sec.style.transform='translateY(0)';
-    }else{
-      sec.style.opacity=0;
-      sec.style.transform='translateY(50px)';
-    }
-  });
-}
-window.addEventListener('scroll', revealSections);
-window.addEventListener('load', revealSections);
+</a>
 
-// PARALLAX
-window.addEventListener('scroll', ()=>{
-  const scrollY=window.scrollY;
-  document.querySelectorAll('[data-parallax]').forEach(el=>{
-    el.style.transform=`translateY(${scrollY*0.05}px)`;
-  });
-});
+</div>
 
-// SCROLL TO SECTION
-function scrollToSection(selector){document.querySelector(selector).scrollIntoView({behavior:'smooth'});}
-
-// CASE STUDY FADE
-const caseParagraphs=document.querySelectorAll('.case-study p');
-window.addEventListener('scroll', ()=>{
-  const triggerBottom=window.innerHeight/5*4;
-  caseParagraphs.forEach(p=>{
-    if(p.getBoundingClientRect().top<triggerBottom){
-      p.style.opacity='1';
-      p.style.transform='translateY(0)';
-    }else{
-      p.style.opacity='0';
-      p.style.transform='translateY(20px)';
-    }
-  });
-});
-
-// BEFORE-AFTER SLIDER
-const slider=document.querySelector('.slider-container');
-const afterImg=slider.querySelector('.after');
-const handle=slider.querySelector('.slider-handle');
-let isDragging=false;
-handle.addEventListener('mousedown', ()=>isDragging=true);
-window.addEventListener('mouseup', ()=>isDragging=false);
-window.addEventListener('mousemove', e=>{
-  if(!isDragging) return;
-  const rect=slider.getBoundingClientRect();
-  let x=e.clientX-rect.left;
-  x=Math.max(0,Math.min(x,rect.width));
-  const percent=x/rect.width*100;
-  afterImg.style.clipPath=`inset(0 ${100-percent}% 0 0)`;
-  handle.style.left=`${percent}%`;
-});
-</script>
 </body>
-</html>
+   </html>
